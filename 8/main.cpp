@@ -1,12 +1,13 @@
 #include <iostream>
-using namespace std;
+#include "LinkedList.hpp"
 
-#include "LinkedList.h"
+using namespace std;
+using namespace fhdo::pk2;
 
 void print(const char* val) { cout << val << endl; }
 
 int _main() {
-    LinkedList list = LinkedList();
+    LinkedList list;
     list.append("Hallo");
     list.append("Test");
     list.append("R");
@@ -20,10 +21,10 @@ void ausgabe(const char* text) { std::cout << text << std::endl; }
 // Test der LinkedListKlasse
 int main() {
     using namespace std;
-    LinkedList liste;
+    fhdo::pk2::LinkedList liste;
     liste.append("Element 1");
-    liste.insert("Element 2", 2);
-    LinkedList liste2 = liste;
+    liste.insert("Element 2", 1);
+    fhdo::pk2::LinkedList liste2 = liste;
     cout << "Liste:" << endl;
     liste.visit_all(ausgabe);
     liste.remove(2);

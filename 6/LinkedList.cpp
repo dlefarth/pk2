@@ -5,15 +5,10 @@
 #include <iostream>
 #include <new>
 
-LinkedList::LinkedList() {
-    head = nullptr;
-    tail = nullptr;
-}
+LinkedList::LinkedList() : head(nullptr), tail(nullptr) {}
 
 int LinkedList::append(const char* text) {
-    list_element* temp = new list_element;
-    temp->value = text;
-    temp->next = nullptr;
+    Node* temp = new Node(text);
 
     if (head == nullptr) {
         head = temp;
@@ -31,8 +26,9 @@ int LinkedList::insert(const char* text, int p) {
         return append(text);
     }
 
-    list_element* prev = nullptr;
-    list_element* ptr = head;
+    Node* prev = new Node;
+    Node* ptr = new Node;
+    ptr = head;
 
     int i = 0;
     while (i <= p) {
@@ -45,9 +41,7 @@ int LinkedList::insert(const char* text, int p) {
         }
     }
 
-    list_element* newElement = new list_element;
-    newElement->value = text;
-    newElement->next = ptr;
+    Node* newElement = new Node(text, ptr);
     if (prev == nullptr) {
         head = newElement;
     } else {
@@ -57,8 +51,8 @@ int LinkedList::insert(const char* text, int p) {
 
 int LinkedList::remove(int p) {
     int i = 0;
-    list_element* ptr = head;
-    list_element* prev = nullptr;
+    Node* ptr = head;
+    Node* prev = nullptr;
 
     if (ptr == nullptr) return 0;
 
@@ -69,9 +63,11 @@ int LinkedList::remove(int p) {
     }
 
     if (ptr == tail && ptr == head) {
-        head = tail = nullptr;
+        head = nullptr;
+        tail = nullptr;
     } else if (ptr == tail) {
         tail = prev;
+        prev->next = nullptr;
     } else if (ptr == head) {
         head = ptr->next;
     } else {
@@ -84,7 +80,8 @@ int LinkedList::remove(int p) {
 
 const char* LinkedList::get(int p) {
     int i = 0;
-    list_element* ptr = head;
+    Node* ptr = new Node;
+    ptr = head;
 
     if (ptr == nullptr) return nullptr;
 
@@ -98,7 +95,8 @@ const char* LinkedList::get(int p) {
 
 int LinkedList::index_of(const char* text) {
     int i = 0;
-    list_element* ptr = head;
+    Node* ptr = new Node;
+    ptr = head;
 
     if (ptr == nullptr) return -1;
 
@@ -112,13 +110,16 @@ int LinkedList::index_of(const char* text) {
 }
 
 void LinkedList::visit_all(void (*work)(const char* t)) {
-    list_element* ptr = head;
+    if (head == nullptr) return;
 
-    if (ptr == nullptr) return;
+    Node* ptr = new Node;
+    ptr = head;
 
     while (1) {
         (*work)(ptr->value);
-        if (ptr->next == nullptr) return;
+        if (ptr->next == nullptr) {
+            return;
+        }
         ptr = ptr->next;
     }
 }
@@ -128,8 +129,8 @@ const char* LinkedList::first() { return head->value; }
 const char* LinkedList::last() { return tail->value; }
 
 LinkedList::~LinkedList() {
-    list_element* ptr = head;
-    list_element* del = NULL;
+    Node* ptr = head;
+    Node* del = NULL;
 
     if (ptr == nullptr) return;
 
@@ -138,4 +139,21 @@ LinkedList::~LinkedList() {
         ptr = ptr->next;
         delete ptr;
     }
+}
+
+LinkedList::LinkedList(LinkedList& originalList) {
+    if (originalList.head == nullptr) {
+        head = nullptr;
+        return;
+    }
+    head = new Node(originalList.head->value);
+    Node* newPtr = head;  // is one before original because next is set
+    Node* originalPtr = originalList.head->next;
+
+    while (originalPtr != nullptr) {
+        newPtr->next = new Node(originalPtr->value);
+        originalPtr = originalPtr->next;
+        newPtr = newPtr->next;
+    }
+    tail = newPtr;
 }
