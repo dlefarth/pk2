@@ -19,4 +19,6 @@
 8/main
 8/LinkedList.o
 8/.vscode/
-9/.vscode/
+9/.vscode/launch.json
+9/.vscode/settings.json
+9/.vscode/tasks.json
