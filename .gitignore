@@ -18,6 +18,5 @@
 7/medium.o
 8/main
 8/LinkedList.o
-8/.vscode/launch.json
-8/.vscode/tasks.json
-8/.vscode/settings.json
+8/.vscode/
+9/.vscode/
