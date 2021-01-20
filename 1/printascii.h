@@ -1,1 +1,0 @@
-void printascii(int s);
