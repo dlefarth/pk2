@@ -4,9 +4,9 @@
 #include "stack.h"
 
 int main() {
+    stack s;
     try {
-        stack s* = new stack();
-        s->pop();
+        s.pop();
     } catch (empty_stack& e) {
         std::cout << e.what() << std::endl;
     }

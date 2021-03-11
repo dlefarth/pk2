@@ -5,8 +5,13 @@
 stack::stack() : top{nullptr} {}
 
 stack::~stack() {
-    while (pop() != -1)
-        ;
+    while (true) {
+        try {
+            pop();
+        } catch (empty_stack &e) {
+            break;
+        }
+    }
 }
 
 stack::stack(const stack &orig) : stack{} {
