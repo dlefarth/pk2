@@ -27,9 +27,7 @@ int LinkedList::insert(const char* text, int p) {
     }
 
     Node* prev;
-    Node* ptr;
-
-    ptr = head;
+    Node* ptr = head;
 
     int i = 0;
     while (i <= p) {
@@ -52,8 +50,9 @@ int LinkedList::insert(const char* text, int p) {
 
 int LinkedList::remove(int p) {
     int i = 0;
+
     Node* ptr = head;
-    Node* prev = nullptr;
+    Node* prev;
 
     if (ptr == nullptr) return 0;
 
@@ -81,8 +80,7 @@ int LinkedList::remove(int p) {
 
 const char* LinkedList::get(int p) {
     int i = 0;
-    Node* ptr = new Node;
-    ptr = head;
+    Node* ptr = head;
 
     if (ptr == nullptr) return nullptr;
 
@@ -129,14 +127,13 @@ const char* LinkedList::last() { return tail->value; }
 
 LinkedList::~LinkedList() {
     Node* ptr = head;
-    Node* del = NULL;
+    Node* temp;
 
     if (ptr == nullptr) return;
 
     while (ptr->next != nullptr) {
-        del = ptr;
+        temp = ptr;
         ptr = ptr->next;
-        delete ptr;
+        delete temp;
     }
 }
-

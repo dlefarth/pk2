@@ -53,7 +53,7 @@ int LinkedList::insert(const char* text, int p) {
 int LinkedList::remove(int p) {
     int i = 0;
     Node* ptr = head;
-    Node* prev = nullptr;
+    Node* prev;
 
     if (ptr == nullptr) return 0;
 
