@@ -1,15 +1,12 @@
 #ifndef LINKED_LIST_H
 #define LINKED_LIST_H
 
-struct list_element{
-    const char* value;
-    struct list_element* next;
-};
+#include "Node.hpp"
 
 class LinkedList {
     private:
-        list_element* head;
-        list_element* tail;
+        Node* head;
+        Node* tail;
 
     public:
         LinkedList();

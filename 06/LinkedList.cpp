@@ -26,8 +26,9 @@ int LinkedList::insert(const char* text, int p) {
         return append(text);
     }
 
-    Node* prev = new Node;
-    Node* ptr = new Node;
+    Node* prev;
+    Node* ptr;
+
     ptr = head;
 
     int i = 0;
@@ -95,8 +96,7 @@ const char* LinkedList::get(int p) {
 
 int LinkedList::index_of(const char* text) {
     int i = 0;
-    Node* ptr = new Node;
-    ptr = head;
+    Node* ptr = head;
 
     if (ptr == nullptr) return -1;
 
@@ -112,8 +112,7 @@ int LinkedList::index_of(const char* text) {
 void LinkedList::visit_all(void (*work)(const char* t)) {
     if (head == nullptr) return;
 
-    Node* ptr = new Node;
-    ptr = head;
+    Node* ptr = head;
 
     while (1) {
         (*work)(ptr->value);
@@ -141,19 +140,3 @@ LinkedList::~LinkedList() {
     }
 }
 
-LinkedList::LinkedList(LinkedList& originalList) {
-    if (originalList.head == nullptr) {
-        head = nullptr;
-        return;
-    }
-    head = new Node(originalList.head->value);
-    Node* newPtr = head;  // is one before original because next is set
-    Node* originalPtr = originalList.head->next;
-
-    while (originalPtr != nullptr) {
-        newPtr->next = new Node(originalPtr->value);
-        originalPtr = originalPtr->next;
-        newPtr = newPtr->next;
-    }
-    tail = newPtr;
-}

@@ -28,7 +28,7 @@ int LinkedList::insert(const char* text, int p) {
         return append(text);
     }
 
-    Node* prev = nullptr;
+    Node* prev;
     Node* ptr = head;
 
     int i = 0;
@@ -81,8 +81,7 @@ int LinkedList::remove(int p) {
 
 const char* LinkedList::get(int p) {
     int i = 0;
-    Node* ptr = new Node;
-    ptr = head;
+    Node* ptr = head;
 
     if (ptr == nullptr) return nullptr;
 
@@ -96,8 +95,7 @@ const char* LinkedList::get(int p) {
 
 int LinkedList::index_of(const char* text) {
     int i = 0;
-    Node* ptr = new Node;
-    ptr = head;
+    Node* ptr = head;
 
     if (ptr == nullptr) return -1;
 
@@ -124,14 +122,14 @@ const char* LinkedList::last() { return tail->value; }
 
 LinkedList::~LinkedList() {
     Node* ptr = head;
-    Node* del = NULL;
+    Node* temp;
 
     if (ptr == nullptr) return;
 
     while (ptr->next != nullptr) {
-        del = ptr;
+        temp = ptr;
         ptr = ptr->next;
-        delete ptr;
+        delete temp;
     }
 }
 
