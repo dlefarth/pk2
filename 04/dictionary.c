@@ -8,7 +8,7 @@ typedef struct s_list_element {
     struct s_list_element *next;
 } list_element;
 
-static list_element *dictionary[SIZE];
+list_element *dictionary[SIZE];
 
 int calc_hash(int number) { return number % SIZE; }
 
