@@ -6,9 +6,9 @@ namespace fh.pk2.commands
     {
         private Garagentor garagentor;
 
-        public GaragentorRunter(Garagentor _garagentor)
+        public GaragentorRunter(Garagentor garagentor)
         {
-            garagentor = _garagentor;
+            this.garagentor = garagentor;
         }
 
         public override void execute()
@@ -21,9 +21,9 @@ namespace fh.pk2.commands
     {
         private Garagentor garagentor;
 
-        public GaragentorHoch(Garagentor _garagentor)
+        public GaragentorHoch(Garagentor garagentor)
         {
-            garagentor = _garagentor;
+            this.garagentor = garagentor;
         }
 
         public override void execute()

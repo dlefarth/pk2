@@ -3,7 +3,7 @@ using fh.pk2.rc;
 using fh.pk2.commands;
 using fh.pk2.devices;
 
-namespace fh.pk2 
+namespace fh.pk2
 {
     class Program
     {

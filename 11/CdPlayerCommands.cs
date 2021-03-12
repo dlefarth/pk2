@@ -6,9 +6,9 @@ namespace fh.pk2.commands
     {
         private CdPlayer player;
 
-        public CdStart(CdPlayer _player)
+        public CdStart(CdPlayer player)
         {
-            player = _player;
+            this.player = player;
         }
 
         public override void execute()
@@ -21,9 +21,9 @@ namespace fh.pk2.commands
     {
         private CdPlayer player;
 
-        public CdStop(CdPlayer _player)
+        public CdStop(CdPlayer player)
         {
-            player = _player;
+            this.player = player;
         }
 
         public override void execute()
