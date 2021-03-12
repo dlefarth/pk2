@@ -69,7 +69,7 @@ namespace _12
 
             if (previous != null)
             {
-                previous.Next = null;
+                previous.Next = current.Next;
             }
             else
             {

@@ -4,19 +4,11 @@ namespace _12
 {
     public class FuhrparkEventArgs : EventArgs
     {
-        private Auto auto;
-
-        public Auto Auto
-        {
-            get
-            {
-                return auto;
-            }
-        }
+        public Auto Auto { get; }
 
         public FuhrparkEventArgs(Auto auto)
         {
-            this.auto = auto;
+            this.Auto = auto;
         }
     }
 
