@@ -17,7 +17,7 @@ int insert(int value) {
 
     list_element *new = malloc(sizeof(list_element));
 
-    if (new == 0) return 0; 
+    if (new == NULL) return 0; 
 
     new->value = value;
     new->next = dictionary[pos];
