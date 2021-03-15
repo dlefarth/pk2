@@ -20,6 +20,9 @@ int insert(int value) {
 		dictionary[pos] = (dict_element) {USED, value};
         return 1;
     } else {
+        if(dictionary[pos].state == USED && dictionary[pos].value == value) {
+        	return 1;
+        }
         int initialPos = pos;
         while(++pos % LENGTH != initialPos) {
             if(dictionary[pos].state == USED && dictionary[pos].value == value) {
